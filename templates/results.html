@@ -1,0 +1,117 @@
+{% raw %}{% extends "base.html" %}
+{% block title %}Analysis Results{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-brown mb-4">Tender Analysis – {{ source }}</h2>
+  <div class="mb-3">
+    <a href="{{ url_for('download_result', result_id=result_id) }}" class="btn btn-outline-secondary">
+      <i class="bi bi-download"></i> Download Full JSON
+    </a>
+  </div>
+
+  <!-- Overview Card -->
+  <div class="card p-3 mb-4">
+    <h5 class="card-title text-green">Overview</h5>
+    <ul class="list-unstyled">
+      <li><strong>Title:</strong> {{ extraction.overview.title }}</li>
+      <li><strong>Reference:</strong> {{ extraction.overview.reference }}</li>
+      <li><strong>Issuer:</strong> {{ extraction.overview.issuing_organization }}</li>
+      <li><strong>Summary:</strong> {{ extraction.overview.summary }}</li>
+    </ul>
+  </div>
+
+  <!-- Eligibility -->
+  <div class="card p-3 mb-4">
+    <h5 class="card-title text-green">Eligibility Requirements</h5>
+    {% if extraction.eligibility %}
+      <ul>
+        {% for line in extraction.eligibility %}
+          <li>{{ line }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-muted">Not found in document</p>
+    {% endif %}
+  </div>
+
+  <!-- Financial -->
+  <div class="card p-3 mb-4">
+    <h5 class="card-title text-green">Financial Requirements</h5>
+    {% if extraction.financial %}
+      <ul>
+        {% for line in extraction.financial %}
+          <li>{{ line }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-muted">Not found in document</p>
+    {% endif %}
+  </div>
+
+  <!-- Dates -->
+  <div class="card p-3 mb-4">
+    <h5 class="card-title text-green">Important Dates</h5>
+    {% if extraction.dates %}
+      <ul>
+        {% for d in extraction.dates %}
+          <li>{{ d }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-muted">Not found in document</p>
+    {% endif %}
+  </div>
+
+  <!-- Mandatory Documents -->
+  <div class="card p-3 mb-4">
+    <h5 class="card-title text-green">Mandatory Documents</h5>
+    {% if extraction.mandatory_docs %}
+      <ul>
+        {% for doc in extraction.mandatory_docs %}
+          <li>{{ doc }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-muted">Not found in document</p>
+    {% endif %}
+  </div>
+
+  <!-- Disqualification -->
+  <div class="card p-3 mb-4">
+    <h5 class="card-title text-green">Disqualification Conditions</h5>
+    {% if extraction.disqualification %}
+      <ul>
+        {% for line in extraction.disqualification %}
+          <li>{{ line }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-muted">Not found in document</p>
+    {% endif %}
+  </div>
+
+  <!-- Alerts -->
+  {% if extraction.alerts %}
+    <div class="card border-danger p-3 mb-4">
+      <h5 class="card-title text-danger">Risk &amp; Attention Alerts</h5>
+      <ul>
+        {% for alert in extraction.alerts %}
+          <li><strong>{{ alert.type }}:</strong> {{ alert.message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <!-- Keywords -->
+  <div class="card p-3 mb-4">
+    <h5 class="card-title text-green">Key Terms (TF‑IDF ranking)</h5>
+    <p>{{ extraction.keywords | join(', ') }}</p>
+  </div>
+
+  <!-- Summary -->
+  <div class="card p-3 mb-4">
+    <h5 class="card-title text-green">Brief Summary</h5>
+    <p>{{ extraction.summary }}</p>
+  </div>
+</div>
+{% endblock %}{% endraw %}

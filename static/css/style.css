@@ -1,0 +1,53 @@
+/* Warm, light colour palette */
+:root {
+    --color-cream: #fdf5e6;   /* old lace */
+    --color-beige: #f5f5dc;   /* beige */
+    --color-white: #ffffff;
+    --color-brown: #4e342e;   /* dark brown */
+    --color-green: #8bc34a;   /* subtle green */
+    --color-muted: #6c757d;   /* Bootstrap muted */
+}
+
+body.bg-cream {
+    background-color: var(--color-cream) !important;
+    color: var(--color-brown);
+}
+
+.text-brown { color: var(--color-brown) !important; }
+.text-green { color: var(--color-green) !important; }
+
+/* Card styling */
+.card {
+    border-radius: 0.75rem;
+    border: 1px solid rgba(0,0,0,.125);
+    background-color: var(--color-white);
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    margin-bottom: 1rem;
+}
+
+/* Button tweaks */
+.btn-success {
+    background-color: var(--color-green);
+    border-color: var(--color-green);
+}
+
+.btn-outline-secondary {
+    color: var(--color-brown);
+    border-color: var(--color-brown);
+}
+
+/* Form elements */
+.form-control {
+    border-radius: 0.5rem;
+    border-color: var(--color-muted);
+}
+
+/* Responsive spacing helpers */
+.mt-5 { margin-top: 3rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+.ml-2 { margin-left: .5rem !important; }
+
+/* Footer */
+footer.footer {
+    border-top: 1px solid rgba(0,0,0,.1);
+}

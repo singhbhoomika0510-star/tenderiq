@@ -1,0 +1,22 @@
+{% raw %}{% extends "base.html" %}
+{% block title %}Analyze Tender{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-brown mb-4">Upload Tender Document</h2>
+  <form method="post" enctype="multipart/form-data" class="row g-3">
+    <div class="col-12">
+      <label for="tender_file" class="form-label">Choose PDF or TXT file</label>
+      <input class="form-control" type="file" id="tender_file" name="tender_file" accept=".pdf,.txt">
+    </div>
+    <div class="col-12">
+      <label for="tender_text" class="form-label">Or paste tender text</label>
+      <textarea class="form-control" id="tender_text" name="tender_text" rows="6" placeholder="Paste the full tender text here..."></textarea>
+    </div>
+    <div class="col-12 d-flex align-items-center">
+      <button type="submit" class="btn btn-success me-3">Analyze Tender</button>
+      <input type="hidden" name="load_sample" value="false" id="load_sample_input">
+      <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('load_sample_input').value='true'; this.form.submit();">Load Sample Tender</button>
+    </div>
+  </form>
+</div>
+{% endblock %}{% endraw %}

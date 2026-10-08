@@ -1,0 +1,12 @@
+{% raw %}{% extends "base.html" %}
+{% block title %}Tender-IQ — Home{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <h1 class="display-4 text-brown">Tender-IQ — Intelligent Tender Analysis System</h1>
+  <p class="lead text-muted">Automatically extract key information from tender documents and present it in a clear dashboard.</p>
+  <hr class="my-4">
+  <p>Upload a PDF/TXT file or paste text to start analysis.</p>
+  <a href="{{ url_for('analyze') }}" class="btn btn-success btn-lg">Start Analysis</a>
+  <a href="{{ url_for('static', filename='sample_tender.txt') }}" class="btn btn-outline-secondary btn-lg ml-2">Try Sample Tender</a>
+</div>
+{% endblock %}{% endraw %}

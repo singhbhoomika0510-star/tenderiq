@@ -1,0 +1,23 @@
+# Python / Flask typical ignores
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+env/
+ENV/
+env*/
+*.egg-info/
+*.egg
+*.log
+*.sqlite3
+instance/
+.webassets-cache
+.idea/
+*.iml
+.DS_Store
+uploads/
+# Flask secret key files (if any)
+instance/config.py
+# OS generated files
+Thumbs.db
