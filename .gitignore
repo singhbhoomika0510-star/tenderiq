@@ -21,3 +21,7 @@ uploads/
 instance/config.py
 # OS generated files
 Thumbs.db
+
+# Project artifacts
+index.html
+tenderiq.zip

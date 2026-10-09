@@ -12,6 +12,7 @@ Features added in this update:
 import os
 import uuid
 import json
+from datetime import datetime
 from flask import (
     Flask,
     render_template,
@@ -20,6 +21,7 @@ from flask import (
     url_for,
     flash,
     send_file,
+    send_from_directory,
 )
 
 # import fitz  # optional PDF support – handled in preprocessing
@@ -36,6 +38,10 @@ app.config["UPLOAD_EXTENSIONS"] = [".pdf", ".txt"]
 app.config["UPLOAD_PATH"] = os.path.join(os.getcwd(), "uploads")
 os.makedirs(app.config["UPLOAD_PATH"], exist_ok=True)
 
+@app.context_processor
+def inject_year():
+    return {"current_year": datetime.utcnow().year}
+
 # ---------------------------------------------------------------------------
 # Routes
 # ---------------------------------------------------------------------------
@@ -47,6 +53,10 @@ def index():
 @app.route('/about')
 def about():
     return render_template("about.html")
+
+@app.route('/sample-tender')
+def sample_tender():
+    return send_from_directory("data", "sample_tender.txt", as_attachment=True, download_name="sample_tender.txt")
 
 @app.route('/history')
 def history():

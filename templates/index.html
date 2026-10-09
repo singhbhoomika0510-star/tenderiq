@@ -1,12 +1,79 @@
-{% raw %}{% extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}Tender-IQ — Home{% endblock %}
 {% block content %}
-<div class="container mt-5">
-  <h1 class="display-4 text-brown">Tender-IQ — Intelligent Tender Analysis System</h1>
-  <p class="lead text-muted">Automatically extract key information from tender documents and present it in a clear dashboard.</p>
-  <hr class="my-4">
-  <p>Upload a PDF/TXT file or paste text to start analysis.</p>
-  <a href="{{ url_for('analyze') }}" class="btn btn-success btn-lg">Start Analysis</a>
-  <a href="{{ url_for('static', filename='sample_tender.txt') }}" class="btn btn-outline-secondary btn-lg ml-2">Try Sample Tender</a>
-</div>
-{% endblock %}{% endraw %}
+<section class="hero-shell">
+  <div class="hero-glow hero-glow-one"></div>
+  <div class="hero-glow hero-glow-two"></div>
+
+  <div class="hero-panel">
+    <div class="hero-copy">
+      <span class="eyebrow">Smart Tender Intelligence</span>
+      <h1>Turn complex tenders into clear, confident decisions.</h1>
+      <p>
+        Tender-IQ analyzes tender documents, highlights key requirements,
+        identifies risks, and helps teams move faster with richer insight.
+      </p>
+
+      <div class="cta-row">
+        <a href="{{ url_for('analyze') }}" class="primary-btn">Start Analysis</a>
+        <a href="{{ url_for('sample_tender') }}" class="secondary-btn">Try Sample</a>
+      </div>
+
+      <div class="mini-stats">
+        <div class="stat-card">
+          <strong>3x</strong>
+          <span>Faster review</span>
+        </div>
+        <div class="stat-card">
+          <strong>24/7</strong>
+          <span>AI-assisted</span>
+        </div>
+        <div class="stat-card">
+          <strong>99%</strong>
+          <span>Clarity</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-label="Tender analysis dashboard preview">
+      <div class="dashboard-card main-card">
+        <div class="card-top">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+
+        <div class="score-row">
+          <div class="big-score">88%</div>
+          <div class="chip success">Eligible</div>
+        </div>
+
+        <div class="bars">
+          <span style="height: 34%"></span>
+          <span style="height: 58%"></span>
+          <span style="height: 72%"></span>
+          <span style="height: 90%"></span>
+          <span style="height: 64%"></span>
+          <span style="height: 86%"></span>
+        </div>
+
+        <div class="pill-row">
+          <span class="tiny-pill purple">Compliance</span>
+          <span class="tiny-pill orange">Risk</span>
+          <span class="tiny-pill blue">Finance</span>
+        </div>
+      </div>
+
+      <div class="floating-note note-one">
+        <span class="note-tag">Deadline</span>
+        <strong>02 Oct 2026</strong>
+      </div>
+
+      <div class="floating-note note-two">
+        <span class="note-tag">Alert</span>
+        <strong>2 key checks</strong>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
